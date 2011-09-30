@@ -1,0 +1,9 @@
+ul.CheckBoxList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+div.field input[type='checkbox'] {
+    margin-top:0.5em;
+}

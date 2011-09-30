@@ -1,0 +1,86 @@
+<project xmlns:j="jelly:core"
+    xmlns:artifact="artifact"
+    xmlns:u="jelly:util"
+    xmlns:ant="jelly:ant">
+
+  <!-- install snapshot distribution to local repo -->
+  <goal name="jcatalog:grailswar-install-snapshot">
+    <artifact:install-snapshot artifact="${pom.artifactId}.war"
+      type="war" project="${pom}"/>
+  </goal>
+
+  <!-- install distribution to local repo -->
+  <goal name="jcatalog:grailswar-install">
+    <artifact:install artifact="${pom.artifactId}.war"
+      type="war" project="${pom}"/>
+  </goal>
+
+  <!-- deploy snapshot distribution to remote repo -->
+  <goal name="jcatalog:grailswar-deploy-snapshot">
+    <artifact:deploy-snapshot artifact="${pom.artifactId}.war"
+      type="war" project="${pom}"/>
+  </goal>
+
+  <!-- deploy distribution to remote repo -->
+  <goal name="jcatalog:grailswar-deploy">
+    <artifact:deploy artifact="${pom.artifactId}.war"
+      type="war" project="${pom}"/>
+  </goal>
+
+  <!-- copy dependencies to ${basedir}/lib/ -->
+  <goal name="grails:copylib">
+    <j:set var="maven.jcatalog.copylib.dir" value="${basedir}/lib"/>
+    <u:available file="${maven.jcatalog.copylib.dir}">
+      <ant:fileset id="oldLibFileSet" dir="${maven.jcatalog.copylib.dir}"/>
+      <ant:fileScanner var="oldLibFiles">
+        <ant:fileset refid="oldLibFileSet"/>
+      </ant:fileScanner>
+      <j:forEach var="oldLib" items="${oldLibFiles.iterator()}">
+        <j:set var="hasToBeDeleted" value="${true}"/>
+        <j:forEach var="lib" items="${pom.artifacts}">
+          <j:if test="${lib.name == oldLib.name}">
+            <j:set var="hasToBeDeleted" value="${false}"/>
+          </j:if>
+        </j:forEach>
+        <j:if test="${hasToBeDeleted}">
+          <delete file="${oldLib}"/>
+        </j:if>
+      </j:forEach>
+    </u:available>
+    <j:forEach var="lib" items="${pom.artifacts}">
+      <j:set var="dep" value="${lib.dependency}"/>
+      <j:if test="${dep.getProperty('war.bundle')=='true'}">
+        <copy todir="${maven.jcatalog.copylib.dir}" file="${lib.path}"/>
+      </j:if>
+    </j:forEach>
+  </goal>
+
+  <!-- installs grails plugins -->
+  <goal name="grails:install-plugins">
+    <j:set var="pluginDir" value="${basedir}/plugins"/>
+    <delete dir="${pluginDir}" excludes=".svn/**" includeemptydirs="true" defaultexcludes="false"/>
+    <mkdir dir="${pluginDir}"/>
+    <j:set var="tmpPluginDir" value="${maven.build.dir}/tmpPluginDir"/>
+    <delete dir="${tmpPluginDir}"/>
+    <mkdir dir="${tmpPluginDir}"/>
+    <j:forEach var="lib" items="${pom.artifacts}">
+      <j:set var="dep" value="${lib.dependency}"/>
+      <j:if test="${dep.getProperty('grailsPlugin.bundle')=='true'}">
+        <j:set var="pluginVersion" value="${dep.version}"/>
+        <echo>pluginVersion: ${pluginVersion}</echo>
+        <j:set var="pluginName" value="${dep.artifact.toString().replaceFirst('-'+pluginVersion,'')}"/>
+        <echo>pluginName: ${pluginName}</echo>
+        <j:set var="pluginFileName" value="${dep.artifact.toString()}"/>
+        <ant:copy tofile="${tmpPluginDir}/${pluginFileName}" flatten="true"
+                  file="${lib.path}"/>
+        <j:set var="installedPluginDirName" value="${dep.artifactId.toString().replaceFirst('grails-','')}-${dep.version}"/>
+        <j:set var="installedPluginDirPath" value="${pluginDir}/${installedPluginDirName}"/>
+        <unzip src="${tmpPluginDir}/${pluginFileName}" dest="${installedPluginDirPath}"/>
+        <echo>Deleting lib directory '${installedPluginDirPath}/lib' from '${installedPluginDirName}' plugin ...
+          Make sure that all plugin dependencies are included in application</echo>
+        <delete dir="${installedPluginDirPath}/lib"/>
+      </j:if>
+    </j:forEach>
+    <delete dir="${tmpPluginDir}"/>
+  </goal>
+</project>

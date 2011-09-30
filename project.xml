@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <pomVersion>3</pomVersion>
+  <artifactId>weceem</artifactId>
+  <groupId>com.jcatalog/weceem</groupId>
+  <name>Weceem</name>
+  <currentVersion>SNAPSHOT</currentVersion>
+  <organization>
+    <name>jCatalog Software AG</name>
+    <url>http://www.jcatalog.com</url>
+    <logo>http://develop.jcatalog.com/maven/projects/jCatalogLogo.gif</logo>
+  </organization>
+  <inceptionYear>2007</inceptionYear>
+  <package>com.jcatalog.weceem</package>
+  <shortDescription>Weceem</shortDescription>
+  <description>Weceem</description>
+  <issueTrackingUrl>http://support.jcatalog.com/secure/</issueTrackingUrl>
+  <siteAddress>develop.jcatalog.com</siteAddress>
+  <siteDirectory>/devserver/maven/generated-docs/${pom.artifactId}</siteDirectory>
+  <repository>
+    <connection>scm:svn:svn+ssh://${maven.user}@develop.jcatalog.com/weceem/trunk</connection>
+  </repository>
+
+  <versions>
+  </versions>
+
+  <branches>
+  </branches>
+
+  <!-- build information for the project -->
+  <build>
+    <sourceDirectory>src/java</sourceDirectory>
+    <unitTestSourceDirectory>src/test</unitTestSourceDirectory>
+    <unitTest>
+      <includes>
+        <include>**/*Test.java</include>
+      </includes>
+    </unitTest>
+
+    <resources>
+      <resource>
+        <directory>src/java</directory>
+        <includes>
+          <include>**/*.properties</include>
+        </includes>
+        <filtering>false</filtering>
+      </resource>
+    </resources>
+
+    <defaultGoal>war:war</defaultGoal>
+  </build>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>acegisecurity</groupId>
+      <artifactId>acegi-security</artifactId>
+      <version>1.0.5</version>
+      <properties>
+        <war.bundle>true</war.bundle>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <groupId>acegisecurity</groupId>
+      <artifactId>acegi-security-tiger</artifactId>
+      <version>1.0.5</version>
+      <properties>
+        <war.bundle>true</war.bundle>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <groupId>aopalliance</groupId>
+      <artifactId>aopalliance</artifactId>
+      <version>1.0</version>
+      <properties>
+        <war.bundle>true</war.bundle>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.3</version>
+      <properties>
+        <war.bundle>true</war.bundle>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <groupId>compass</groupId>
+      <artifactId>compass</artifactId>
+      <version>1.2.2</version>
+      <properties>
+        <war.bundle>true</war.bundle>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <groupId>dom4j</groupId>
+      <artifactId>dom4j</artifactId>
+      <version>1.6.1</version>
+      <type>jar</type>
+      <properties>
+        <war.bundle>true</war.bundle>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <groupId>fckeditor</groupId>
+      <artifactId>fcked_support</artifactId>
+      <version>0.1-20070904</version>
+      <properties>
+        <war.bundle>true</war.bundle>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <groupId>itext</groupId>
+      <artifactId>itext</artifactId>
+      <version>2.1.2u</version>
+      <properties>
+        <war.bundle>true</war.bundle>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <groupId>jai</groupId>
+      <artifactId>jai_core</artifactId>
+      <version>1.1.3</version>
+      <properties>
+        <war.bundle>true</war.bundle>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <groupId>jai</groupId>
+      <artifactId>jai_codec</artifactId>
+      <version>1.1.3</version>
+      <properties>
+        <war.bundle>true</war.bundle>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <groupId>javamail</groupId>
+      <artifactId>javamail</artifactId>
+      <version>1.3</version>
+      <properties>
+        <war.bundle>true</war.bundle>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <groupId>jdom</groupId>
+      <artifactId>jdom</artifactId>
+      <version>1.0</version>
+      <properties>
+        <war.bundle>true</war.bundle>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <groupId>lucene</groupId>
+      <artifactId>lucene-analyzers</artifactId>
+      <version>2.2.0</version>
+      <properties>
+        <war.bundle>true</war.bundle>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <groupId>lucene</groupId>
+      <artifactId>lucene-core</artifactId>
+      <version>2.2.0</version>
+      <properties>
+        <war.bundle>true</war.bundle>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <groupId>lucene</groupId>
+      <artifactId>lucene-highlighter</artifactId>
+      <version>2.2.0</version>
+      <properties>
+        <war.bundle>true</war.bundle>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <groupId>lucene</groupId>
+      <artifactId>lucene-queries</artifactId>
+      <version>2.2.0</version>
+      <properties>
+        <war.bundle>true</war.bundle>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <groupId>lucene</groupId>
+      <artifactId>lucene-snowball</artifactId>
+      <version>2.2.0</version>
+      <properties>
+        <war.bundle>true</war.bundle>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <groupId>quartz</groupId>
+      <artifactId>quartz</artifactId>
+      <version>1.5.2</version>
+      <properties>
+        <war.bundle>true</war.bundle>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <groupId>textilej</groupId>
+      <artifactId>textilej</artifactId>
+      <version>2.2.837</version>
+      <properties>
+        <war.bundle>true</war.bundle>
+      </properties>
+    </dependency>
+
+    <!--Grails plugins-->
+    <dependency>
+      <groupId>grails-plugins</groupId>
+      <artifactId>grails-acegi</artifactId>
+      <version>0.2</version>
+      <type>zip</type>
+      <properties>
+        <grailsPlugin.bundle>true</grailsPlugin.bundle>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <groupId>grails-plugins</groupId>
+      <artifactId>grails-cacheable</artifactId>
+      <version>0.1</version>
+      <type>zip</type>
+      <properties>
+        <grailsPlugin.bundle>true</grailsPlugin.bundle>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <groupId>grails-plugins</groupId>
+      <artifactId>grails-quartz</artifactId>
+      <version>0.2</version>
+      <type>zip</type>
+      <properties>
+        <grailsPlugin.bundle>true</grailsPlugin.bundle>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <groupId>grails-plugins</groupId>
+      <artifactId>grails-richui</artifactId>
+      <version>0.3</version>
+      <type>zip</type>
+      <properties>
+        <grailsPlugin.bundle>true</grailsPlugin.bundle>
+      </properties>
+    </dependency>
+
+    <dependency>
+      <groupId>grails-plugins</groupId>
+      <artifactId>grails-searchable</artifactId>
+      <version>0.4.2-SNAPSHOT</version>
+      <type>zip</type>
+      <properties>
+        <grailsPlugin.bundle>true</grailsPlugin.bundle>
+      </properties>
+    </dependency>
+
+  </dependencies>
+</project>
