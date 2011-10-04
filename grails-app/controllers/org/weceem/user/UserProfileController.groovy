@@ -33,7 +33,7 @@ class UserProfileController {
             assert form.newPass == form.confirmPass // Double double safety check!
             
             def user = CMSUser.get(springSecurityService.principal.id)
-            if (springSecurityService.encodePassword(form.current) == user.passwd) {
+            if (springSecurityService.encodePassword(form.current, user.username) == user.passwd) {
                 user.pass = form.newPass
                 user.save(flush:true) // User needs to know if this will fail
                 flash.message = 'user.password.changed'

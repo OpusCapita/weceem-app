@@ -69,6 +69,6 @@ class CMSUser {
     }
     
     void setPass(String newPass) {
-        passwd = springSecurityService.encodePassword(newPass)
+        passwd = springSecurityService.encodePassword(newPass,username)
     }
 }
