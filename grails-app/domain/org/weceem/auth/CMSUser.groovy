@@ -50,8 +50,8 @@ class CMSUser {
         lastName(nullable: true, maxSize:40)
         description(nullable: true, maxSize:80)
         email(email:true, nullable: true, maxSize:40)
-        passwd(blank: false, nullable: false, maxSize:50)
-        pass(blank: false, nullable: false, maxSize:30) // This is just for UI form submission
+        passwd(blank: false, nullable: false, maxSize:128)
+        pass(blank: false, nullable: false, maxSize:128) // This is just for UI form submission
         enabled()
     }
 
