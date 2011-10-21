@@ -1,3 +1,10 @@
+dataSource {
+    pooled = false
+    driverClassName = "org.h2.Driver"
+    username = "sa"
+    password = ""
+}
+
 hibernate {
     cache.use_second_level_cache=true
     cache.use_query_cache=true // Warning, turning this on causes lock contention
@@ -8,23 +15,15 @@ hibernate {
 environments {
     development {
         dataSource {
-            pooled = false
-            driverClassName = "org.hsqldb.jdbcDriver"
-            username = "sa"
-            password = ""
             dbCreate = 'create-drop' // one of 'create', 'create-drop','update'
-            url = 'jdbc:hsqldb:mem:devDB'
+            url = 'jdbc:h2:mem:devDB;MVCC=true'
 //            logSql = true
         }
     }
     test {
         dataSource {
-            pooled = false
-            driverClassName = "org.hsqldb.jdbcDriver"
-            username = "sa"
-            password = ""
             dbCreate = "create"
-            url = "jdbc:hsqldb:mem:testDb"
+            url = 'jdbc:h2:mem:testDB;MVCC=true'
         }
     }
 }
