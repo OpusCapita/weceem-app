@@ -187,18 +187,23 @@ environments {
        }
        grails.config.locations = [ dbConfLoc ]
 
-       // Load them because we need them here, even though Grails hasn't loaded them all yet
-       def slurper = new ConfigSlurper()
-       def configs = grails.config.locations?.collect { l -> 
-           println "Loading Weceem config from ${l}"
-           if (l.endsWith('.properties')) {
-               def props = new Properties()
-               props.load( new URL(l).newInputStream() )
-               slurper.parse(props) 
-           } else {
-               slurper.parse(new URL(l)) 
-           }
-       }
+        // Load them because we need them here, even though Grails hasn't loaded them all yet
+        def slurper = new ConfigSlurper()
+        def configs = grails.config.locations?.collect { l -> 
+            println "Loading Weceem config from ${l}"
+            try {
+                if (l.endsWith('.properties')) {
+                    def props = new Properties()
+                    props.load( new URL(l).newInputStream() )
+                    slurper.parse(props) 
+                } else {
+                    slurper.parse(new URL(l)) 
+                }
+            } catch (IOException e) {
+                println "Couldn't load config from URL $l: $e"
+            }
+        }
+
        def config = new ConfigObject() 
        if (configs) {
            configs.each { c -> config.merge(c) }
