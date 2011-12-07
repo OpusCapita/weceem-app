@@ -28,6 +28,6 @@ grails.project.dependency.resolution = {
 	}
 
 	plugins { 
-		compile ':weceem:1.1.1'
+		compile ':weceem:1.1.2'
 	}
 }
