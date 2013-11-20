@@ -8,23 +8,34 @@ hibernate {
 environments {
     development {
         dataSource {
-            pooled = false
-            driverClassName = "org.hsqldb.jdbcDriver"
+            pooled = true
+            driverClassName = "org.h2.Driver"
             username = "sa"
             password = ""
             dbCreate = 'create-drop' // one of 'create', 'create-drop','update'
-            url = 'jdbc:hsqldb:mem:devDB'
+            url = "jdbc:h2:mem:devDb;MVCC=TRUE"
+//            logSql = true
+        }
+    }
+    production {
+        dataSource {
+            pooled = true
+            driverClassName = "org.h2.Driver"
+            username = "sa"
+            password = ""
+            dbCreate = 'update' // one of 'create', 'create-drop','update'
+            url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
 //            logSql = true
         }
     }
     test {
         dataSource {
             pooled = false
-            driverClassName = "org.hsqldb.jdbcDriver"
+            driverClassName = "org.h2.Driver"
             username = "sa"
             password = ""
-            dbCreate = "create"
-            url = "jdbc:hsqldb:mem:testDb"
+            dbCreate = "create-drop"
+            url = "jdbc:h2:mem:testDb;MVCC=TRUE"
         }
     }
 }

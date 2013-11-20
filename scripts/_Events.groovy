@@ -2,7 +2,7 @@ import groovy.xml.StreamingMarkupBuilder
 import grails.util.Environment
 
 def jndiName = 'WeceemDS'
-
+/*
 if (Environment.current == Environment.PRODUCTION) {
     eventWebXmlEnd = {String tmpfile ->
         def root = new XmlSlurper().parse(webXmlFile)
@@ -32,4 +32,4 @@ if (Environment.current == Environment.PRODUCTION) {
             mkp.yield(root)
         }
     }
-}
+}  */
