@@ -18,6 +18,7 @@ grails.project.dependency.resolution = {
 	}
 	log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
 	repositories {
+        mavenLocal grailsSettings.config.jcatalog.mavenLocal
         grailsPlugins()
 		grailsHome()
 		grailsCentral()
@@ -30,7 +31,7 @@ grails.project.dependency.resolution = {
 	}
 
 	plugins {
-        compile ':weceem:1.1.3-SNAPSHOT'
+        compile ':weceem:1.2.my-SNAPSHOT'
 
         // plugins for the build system only
         build ":tomcat:7.0.47"
@@ -39,7 +40,7 @@ grails.project.dependency.resolution = {
         compile ':cache:1.1.1'
 
         // plugins needed at runtime but not for compilation
-        runtime ":hibernate:3.6.10.4" // or ":hibernate4:4.1.11.2"
+        runtime ":hibernate:3.6.10.6" // or ":hibernate4:4.1.11.2"
         runtime ":database-migration:1.3.8"
 
         compile ":bean-fields:1.0" // consider replacing with the fields plugin or even with the new Platform UI
