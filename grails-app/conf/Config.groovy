@@ -126,16 +126,18 @@ grails {
     }
 }
 
-
 environments {
    development {
 
        weceem.upload.dir = 'file:/var/www/weceem.org/uploads/'
-       
+
        // log4j configuration
        log4j = {
+           root {
+               info()
+               additivity = true
+           }
 
-           root.level = org.apache.log4j.Level.INFO
 /*
            debug   'org.weceem',
                    'grails.app.controller',
@@ -160,13 +162,13 @@ environments {
    test {
    }
    production {
-       
+
        log4j = {
            appenders {
-               rollingFile name: 'fileLog', 
-               fileName: 'application.log', 
-               maxFileSize: 26214400, 
-               maxBackupIndex: 10, 
+               rollingFile name: 'fileLog',
+               fileName: 'application.log',
+               maxFileSize: 26214400,
+               maxBackupIndex: 10,
                layout: pattern(conversionPattern: '%d{yyyy-MM-dd HH:mm:ss,SSS} %p %c{2} %m%n')
            }
            root {
@@ -175,48 +177,18 @@ environments {
            }
            info 'org.weceem',
                 'grails.app'
-                
-           error  'org.codehaus.groovy.grails.web.servlet',  //  controllers
-                  'org.codehaus.groovy.grails.web.pages' //  GSP
+
+           error   'org.codehaus.groovy.grails.web.servlet',  //  controllers
+                   'org.codehaus.groovy.grails.plugins', // plugins
+                   'org.codehaus.groovy.grails.web.pages', //  GSP
+                   'org.codehaus.groovy.grails.web.sitemesh', //  layouts
+                   'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
+                   'org.codehaus.groovy.grails.commons', // core / classloading
+                   'org.codehaus.groovy.grails.orm.hibernate', // hibernate integration
+                   'org.springframework',
+                   'org.hibernate'
 
        }
-       
-       def dbConfLoc = System.getProperty('weceem.config.location', null)
-       if (!dbConfLoc) {
-           dbConfLoc = "file:./weceem.properties"
-       }
-       grails.config.locations = [ dbConfLoc ]
 
-        // Load them because we need them here, even though Grails hasn't loaded them all yet
-        def slurper = new ConfigSlurper()
-        def configs = grails.config.locations?.collect { l -> 
-            println "Loading Weceem config from ${l}"
-            try {
-                if (l.endsWith('.properties')) {
-                    def props = new Properties()
-                    props.load( new URL(l).newInputStream() )
-                    slurper.parse(props) 
-                } else {
-                    slurper.parse(new URL(l)) 
-                }
-            } catch (IOException e) {
-                println "Couldn't load config from URL $l: $e"
-            }
-        }
-
-       def config = new ConfigObject() 
-       if (configs) {
-           configs.each { c -> config.merge(c) }
-           
-           println "Loaded weceem properties: ${config}"
-       }
-       searchable {
-           def diskPath = config.searchable.index.path
-           if (!diskPath || !(diskPath instanceof String) ) {
-               diskPath = "/var/cache/weceem/searchable-index"
-           }
-           println "Setting searchable index path to: ${diskPath}"
-           compassConnection = new File(diskPath).absolutePath
-       }       
    }
 }

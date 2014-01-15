@@ -15,6 +15,8 @@ class BootStrap {
     def _log = LogFactory.getLog('org.weceem.BootStrap')
     
     def wcmContentRepositoryService
+
+    def searchableService
     
     def init = {servletContext ->
         def ctx = ApplicationHolder.application.mainContext
@@ -43,6 +45,10 @@ class BootStrap {
                 println "Bootstrapping Weceem - No spaces, will install default"
                 initNewInstallation(servletContext)
             }
+
+            searchableService.reindex()
+            println "Starting mirror service"
+            searchableService.startMirroring()
 
             // Make sure the upload dirs exist
             def uploadsDir = wcmContentRepositoryService.uploadDir
