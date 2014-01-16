@@ -15,9 +15,9 @@ class BootStrap {
     def _log = LogFactory.getLog('org.weceem.BootStrap')
     
     def wcmContentRepositoryService
-
     def searchableService
-    
+    def springSecurityService
+
     def init = {servletContext ->
         def ctx = ApplicationHolder.application.mainContext
 
@@ -31,7 +31,7 @@ class BootStrap {
 
             if (!CMSUser.findByUsername('admin')) {
                 assert new CMSUser(username: 'admin', firstName: 'admin', lastName: '',
-                        passwd: '21232f297a57a5a743894a0e4a801fc3',
+                        passwd: "${springSecurityService.encodePassword('admin', 'admin')}",
                         email: 'admin@admin.com',
                         enabled: true)
                         .addToAuthorities(CMSRole.findWhere(authority: 'ROLE_ADMIN'))

@@ -83,7 +83,8 @@ grails {
             active = true
             //registerLoggerListener = true
 
-            password.algorithm = "MD5"
+            password.algorithm = "SHA-512"
+            dao.reflectionSaltSourceProperty = 'username'
             //use Base64 text ( true or false )
             password.encodeHashAsBase64 = false
             adh.errorPage = "null"
