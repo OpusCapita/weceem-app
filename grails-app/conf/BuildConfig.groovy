@@ -20,18 +20,21 @@ grails.project.dependency.resolution = {
 	repositories {
         mavenLocal grailsSettings.config.jcatalog.mavenLocal
         grailsPlugins()
-		grailsHome()
-		grailsCentral()
+        grailsHome()
+        grailsCentral()
         mavenRepo "http://repo.grails.org/grails/core"
-	}
+
+    }
 	dependencies {
 		// specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
         compile 'net.java.dev.textile-j:textile-j:2.2.864'
         compile 'xstream:xstream:1.2.1'
+
+        runtime "org.apache.ant:ant:1.8.0"
 	}
 
 	plugins {
-        compile ':weceem:1.2-M1'
+        compile ':weceem:1.2.my-SNAPSHOT'
 
         // plugins for the build system only
         build ":tomcat:7.0.47"
@@ -57,7 +60,7 @@ grails.project.dependency.resolution = {
         compile ":taggable:1.0.1"
         compile ":mail:1.0.1"
 
-        compile ":weceem-spring-security:1.2-M1"
+        compile ":weceem-spring-security:1.2-SNAPSHOT"
         compile ":spring-security-core:1.2.7.3"
 }
 }
