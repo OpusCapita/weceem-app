@@ -18,7 +18,6 @@ grails.project.dependency.resolution = {
 	}
 	log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
 	repositories {
-        mavenLocal grailsSettings.config.jcatalog.mavenLocal
         grailsPlugins()
         grailsHome()
         grailsCentral()
@@ -34,7 +33,7 @@ grails.project.dependency.resolution = {
 	}
 
 	plugins {
-        compile ':weceem:1.2.my-SNAPSHOT'
+        compile ':weceem:1.2-M1'
 
         // plugins for the build system only
         build ":tomcat:7.0.47"
@@ -60,7 +59,7 @@ grails.project.dependency.resolution = {
         compile ":taggable:1.0.1"
         compile ":mail:1.0.1"
 
-        compile ":weceem-spring-security:1.2-SNAPSHOT"
+        compile ":weceem-spring-security:1.2-M1"
         compile ":spring-security-core:1.2.7.3"
 }
 }
