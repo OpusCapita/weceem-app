@@ -22,10 +22,10 @@
 
                 </div>
                 <div class="buttons">
-                    <g:actionSubmit class="ui-widget ui-state-default ui-corner-all" action="list"
-                        value="${message(code: 'command.cancel', encodeAs:'HTML')}"/>
-                    <g:actionSubmit class="ui-widget ui-state-default ui-corner-all" action="update"
+                     <g:actionSubmit class="ui-widget ui-state-default ui-corner-all" action="update"
                         value="${message(code: 'command.save', encodeAs:'HTML')}"/>
+                     <g:actionSubmit class="ui-widget ui-state-default ui-corner-all" action="list"
+                                     value="${message(code: 'command.cancel', encodeAs:'HTML')}"/>
                 </div>
             </g:form>
         </div>

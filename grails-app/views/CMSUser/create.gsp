@@ -19,10 +19,10 @@
                 </div>
 
                 <div class="buttons">
-                    <g:actionSubmit action="list"
-                        value="${message(code: 'command.cancel', encodeAs:'HTML')}" class="ui-widget ui-state-default ui-corner-all"/>
                     <g:actionSubmit action="save"
                         value="${message(code: 'command.save', encodeAs:'HTML')}" class="ui-widget ui-state-default ui-corner-all"/>
+                    <g:actionSubmit action="list"
+                                    value="${message(code: 'command.cancel', encodeAs:'HTML')}" class="ui-widget ui-state-default ui-corner-all"/>
                 </div>
             </g:form>
         </div>

@@ -20,10 +20,10 @@
                     <g:render template="profilefields"/>
 
                     <div class="buttons">
-                        <g:actionSubmit class="ui-widget ui-state-default ui-corner-all" action="back"
-                            value="${message(code: 'command.back', encodeAs:'HTML')}"/>
                         <g:actionSubmit class="ui-widget ui-state-default ui-corner-all" action="update"
                             value="${message(code: 'command.save', encodeAs:'HTML')}"/>
+                        <g:actionSubmit class="ui-widget ui-state-default ui-corner-all" action="back"
+                            value="${message(code: 'command.back', encodeAs:'HTML')}"/>
                     </div>
                 </g:form>
 
