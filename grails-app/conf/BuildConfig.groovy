@@ -33,26 +33,26 @@ grails.project.dependency.resolution = {
 	}
 
 	plugins {
-        compile ':weceem:1.2-M1'
+        compile ':weceem:1.2-SNAPSHOT'
 
         // plugins for the build system only
-        build ":tomcat:7.0.47"
+        build ":tomcat:7.0.50"
         // plugins for the compile step
         compile ":scaffolding:2.0.1"
         compile ':cache:1.1.1'
 
         // plugins needed at runtime but not for compilation
-        runtime ":hibernate:3.6.10.6" // or ":hibernate4:4.1.11.2"
+        runtime ":hibernate:3.6.10.7" // or ":hibernate4:4.1.11.2"
         runtime ":database-migration:1.3.8"
 
+        runtime ":jquery:1.10.2.2"
+        compile ":jquery-ui:1.10.3"
         compile ":bean-fields:1.0" // consider replacing with the fields plugin or even with the new Platform UI
         compile ":blueprint:1.0.2"
         compile ":cache-headers:1.1.5"
         compile ":ckeditor:3.6.6.1.0"
         compile ":feeds:1.6"
 
-        compile ":jquery:1.8.3"
-        compile ":jquery-ui:1.8.24"
         compile ":navigation:1.3.2"
         compile ":quartz:1.0-RC7"
         compile ":searchable:0.6.6"
