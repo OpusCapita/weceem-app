@@ -74,6 +74,9 @@ weceem.springsecurity.details.mapper = { ->
     ]
 }
 
+// configure custom page for HTTP 404 response
+// weceem.page404 = 'test404page'
+
 grails.validateable.packages=['org.weceem']
 
 // Configure Spring Security
