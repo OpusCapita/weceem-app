@@ -9,6 +9,7 @@
 // if(System.properties["${appName}.config.location"]) {
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
+
 grails.resources.adhoc.excludes = ['/plugins/weceem-1.2']
 
 grails.mime.file.extensions = false // enables the parsing of file extensions from URLs into the request format
@@ -78,6 +79,9 @@ weceem.springsecurity.details.mapper = { ->
 
 // configure custom page for HTTP 404 response
 // weceem.page404 = 'test404page'
+
+// configure custom page for HTTP 406 response
+// weceem.page406 = 'test406page'
 
 grails.validateable.packages=['org.weceem']
 

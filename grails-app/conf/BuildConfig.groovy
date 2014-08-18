@@ -33,7 +33,7 @@ grails.project.dependency.resolution = {
 	}
 
 	plugins {
-        compile ':weceem:1.2'
+        compile ':weceem:1.3-SNAPSHOT'
         // plugins for the build system only
         build ":tomcat:7.0.52.1"
         // plugins for the compile step
@@ -54,7 +54,7 @@ grails.project.dependency.resolution = {
 
         compile ":navigation:1.3.2"
         compile ":quartz:1.0-RC7"
-        compile ":searchable:0.6.6"
+        compile ":searchable:0.6.8"
         compile ":taggable:1.0.1"
         compile ":mail:1.0.1"
 
