@@ -4,7 +4,8 @@
     <title><g:pageProperty name="title"/></title>
     <jq:resources/>
     <jqui:resources/>
-    <blueprint:resources plugins="fancy-type, buttons"/>
+    <link rel="stylesheet" href="${g.resource(plugin:'twitter-bootstrap', dir: 'css',file:'bootstrap.min.css')}"/>
+    <link rel="stylesheet" href="${g.resource(plugin:'twitter-bootstrap', dir: 'css',file:'bootstrap-theme.min.css')}"/>
     <g:layoutHead/>
 </head>
 <body>

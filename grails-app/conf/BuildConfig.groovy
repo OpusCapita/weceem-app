@@ -47,7 +47,7 @@ grails.project.dependency.resolution = {
         runtime ":jquery:1.10.2.2"
         compile ":jquery-ui:1.10.3"
         compile ":bean-fields:1.0" // consider replacing with the fields plugin or even with the new Platform UI
-        compile ":blueprint:1.0.2"
+        compile ":twitter-bootstrap:3.2.0.2"
         compile ":cache-headers:1.1.5"
         compile ":ckeditor:3.6.6.1.0"
         compile ":feeds:1.6"

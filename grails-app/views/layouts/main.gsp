@@ -18,7 +18,9 @@
     <title><g:layoutTitle default="Weceem"/></title>
     <jq:resources/>
     <jqui:resources/>
-    <blueprint:resources plugin="fancy-type, buttons"/>
+
+    <link rel="stylesheet" href="${g.resource(plugin:'twitter-bootstrap', dir: 'css',file:'bootstrap.min.css')}"/>
+    <link rel="stylesheet" href="${g.resource(plugin:'twitter-bootstrap', dir: 'css',file:'bootstrap-theme.min.css')}"/>
 
     <link rel="shortcut icon" href=""/>
     <link rel="stylesheet" href="${createLinkTo(dir:'css',file:'layout.css')}"></link>

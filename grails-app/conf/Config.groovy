@@ -31,6 +31,9 @@ grails.mime.types = [ html: ['text/html','application/xhtml+xml'],
 grails.views.default.codec="none" // none, html, base64
 grails.views.gsp.encoding="UTF-8"
 
+// Bootstrap
+grails.plugins.twitterbootstrap.fixtaglib = true
+
 // Set JSON encoded dates to JS native ie. new Date(1194127343161)
 grails {
     converters {
@@ -148,6 +151,7 @@ environments {
                additivity = true
            }
 
+           debug 'grails.plugin.searchable'
 /*
            debug   'org.weceem',
                    'grails.app.controller',
@@ -166,7 +170,8 @@ environments {
                    'org.codehaus.groovy.grails.commons', // core / classloading
                    'org.codehaus.groovy.grails.orm.hibernate', // hibernate integration
                    'org.springframework',
-                   'org.hibernate'
+                   'org.hibernate',
+                   'grails.plugin.searchable'
        }
    }
    test {
