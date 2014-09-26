@@ -44,12 +44,6 @@ grails {
     }
 }
 
-navigation.'weceem.app.admin' = [
-    controller:'CMSUser',
-    action: 'list',
-    title: 'users'
-]
-
 //cache.headers.enabled = false
 
 // enabled native2ascii conversion of i18n properties files

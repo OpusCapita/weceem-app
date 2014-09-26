@@ -52,7 +52,7 @@ grails.project.dependency.resolution = {
         compile ":ckeditor:3.6.6.1.0"
         compile ":feeds:1.6"
 
-        compile ":navigation:1.3.2"
+        compile ":platform-core:1.0.0"
         compile ":quartz:1.0-RC7"
         compile ":searchable:0.6.8"
         compile ":taggable:1.0.1"
