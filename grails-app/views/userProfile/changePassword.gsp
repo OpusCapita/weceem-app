@@ -11,11 +11,12 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-xs-12">
-          <bean:errorClass>ui-state-error</bean:errorClass>
+          <!--ui-state-error -->
         </div>
       </div>
 
-      <bean:require beanName="form" className="org.weceem.user.ChangePasswordForm"/>
+      <g:set var="form" value="${new org.weceem.user.ChangePasswordForm()}"/>
+
       <g:form controller="userProfile" action="doChangePassword" method="POST">
       <input type="hidden" name="id" value="${CMSUserInstance?.id}"/>
 
@@ -26,29 +27,26 @@
       </div>
 
       <div class="row">
-        <div class="col-md-2 col-xs-2">
-          <bean:label beanName="form" property="current"/>
-        </div>
-        <div class="col-md-10 col-xs-10">
-          <bean:field beanName="form" property="current" type="password" label="${false}"/>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-2 col-xs-2">
-          <bean:label beanName="form" property="newPass"/>
-        </div>
-        <div class="col-md-10 col-xs-10">
-          <bean:field beanName="form" property="newPass" type="password" label="${false}"/>
+        <div class="col-md-12 col-xs-12">
+          <f:field bean="form" property="current">
+            <g:passwordField name="current" value="${form.current}"/>
+          </f:field>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-md-2 col-xs-2">
-          <bean:label beanName="form" property="confirmPass"/>
+        <div class="col-md-12 col-xs-12">
+          <f:field bean="form" property="newPass">
+              <g:passwordField name="current" value="${form.newPass}"/>
+          </f:field>
         </div>
-        <div class="col-md-10 col-xs-10">
-          <bean:field beanName="form" property="confirmPass" type="password" label="${false}"/>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 col-xs-12">
+          <f:field bean="form" property="confirmPass">
+             <g:passwordField name="current" value="${form.confirmPass}"/>
+          </f:field>
         </div>
       </div>
 

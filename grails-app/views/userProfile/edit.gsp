@@ -10,7 +10,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12 col-xs-12">
-                <bean:errorClass>ui-state-error</bean:errorClass>
+                <!--ui-state-error -->
             </div>
           </div>
 

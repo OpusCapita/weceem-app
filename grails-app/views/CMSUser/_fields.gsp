@@ -1,25 +1,18 @@
     <g:render template="/userProfile/profilefields"/>
 
     <div class="row">
-      <div class="col-md-2 col-xs-2">
-        <g:if test="${actionName in ['edit', 'update']}">
-            <bean:label beanName="CMSUserInstance" property="pass" required=" "/>
-        </g:if>
-        <g:else>
-            <bean:label beanName="CMSUserInstance" property="pass"/>
-        </g:else>
+      <div class="col-md-12 col-xs-12">
+        <f:field bean="CMSUserInstance" property="pass">
+          <g:passwordField name="pass" value="${CMSUserInstance.pass}"/>
+        </f:field>
+        <!--f:field beanName="CMSUserInstance" property="pass" type="password" valueOverride="${passwordNonce}" label="${false}"/-->
       </div>
-      <div class="col-md-10 col-xs-10">
-        <bean:field beanName="CMSUserInstance" property="pass" type="password" valueOverride="${passwordNonce}" label="${false}"/>
-      </div>
+
     </div>
 
     <div class="row">
-      <div class="col-md-2 col-xs-2">
-        <bean:label beanName="CMSUserInstance" property="enabled"/>
-      </div>
-      <div class="col-md-10 col-xs-10">
-        <bean:field beanName="CMSUserInstance" property="enabled" label="${false}"/>
+      <div class="col-md-12 col-xs-12">
+        <f:field bean="CMSUserInstance" property="enabled"/>
       </div>
     </div>
 
