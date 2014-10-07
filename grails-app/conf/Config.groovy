@@ -83,8 +83,12 @@ weceem.springsecurity.details.mapper = { ->
 grails.validateable.packages=['org.weceem']
 
 // Configure Spring Security
+
+grails.plugin.springsecurity.rejectIfNoRule = false
+grails.plugin.springsecurity.fii.rejectPublicInvocations = false
+grails.plugin.springsecurity.securityConfigType = 'InterceptUrlMap'
 grails {
-    plugins {
+    plugin {
         springsecurity {
             active = true
             //registerLoggerListener = true
@@ -112,16 +116,15 @@ grails {
             authority.className = "org.weceem.auth.CMSRole"
             authority.nameField = "authority"
 
-            securityConfigType = 'InterceptUrlMap'
             interceptUrlMap = [
-               '/admin/users/**': ['ROLE_ADMIN', 'IS_AUTHENTICATED_REMEMBERED'],
-               '/admin/**':       ['IS_AUTHENTICATED_REMEMBERED'],
-               '/ck/**':          ['IS_AUTHENTICATED_REMEMBERED'],
-               '/*':              ['IS_AUTHENTICATED_ANONYMOUSLY'],
-               '/login/**':       ['IS_AUTHENTICATED_ANONYMOUSLY'],
-               '/logout/**':      ['IS_AUTHENTICATED_ANONYMOUSLY']
+                    '/admin/users/**': ['hasRole(\'ROLE_ADMIN\')', 'isRememberMe()'],
+                    '/admin/**': ['hasRole(\'ROLE_ADMIN\')', 'isRememberMe()'],
+                    '/ck/**': ['isRememberMe()'],
+                    '/*': ['permitAll'],
+                    '/login/**': ['permitAll'],
+                    '/logout/**': ['permitAll']
             ]
-                
+
             /** AJAX request header */
             ajaxHeader = "X-Requested-With"
 
@@ -129,9 +132,11 @@ grails {
             useBasicAuth = false
             /** use switchUserProcessingFilter */
             useSwitchUserFilter = false
+
         }
     }
 }
+
 
 environments {
    development {

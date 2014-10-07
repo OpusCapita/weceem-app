@@ -1,8 +1,7 @@
 import org.apache.commons.logging.LogFactory
 import org.codehaus.groovy.grails.web.servlet.GrailsApplicationAttributes
-import org.codehaus.groovy.grails.commons.ConfigurationHolder
 import grails.util.Environment
-import org.codehaus.groovy.grails.commons.ApplicationHolder
+import grails.util.Holders
 
 import org.weceem.auth.*
 import org.weceem.content.*
@@ -19,7 +18,7 @@ class BootStrap {
     def springSecurityService
 
     def init = {servletContext ->
-        def ctx = ApplicationHolder.application.mainContext
+        def ctx = Holders.grailsApplication.mainContext
 
         if (!initialised && (Environment.current != Environment.TEST)) {
             if (!CMSRole.findByAuthority('ROLE_USER')) {

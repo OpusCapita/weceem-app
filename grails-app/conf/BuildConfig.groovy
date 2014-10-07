@@ -21,6 +21,7 @@ grails.project.dependency.resolution = {
         grailsPlugins()
         grailsHome()
         grailsCentral()
+        mavenCentral()
         mavenRepo "http://repo.grails.org/grails/core"
 
     }
@@ -28,37 +29,38 @@ grails.project.dependency.resolution = {
 		// specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
         compile 'net.java.dev.textile-j:textile-j:2.2.864'
         compile 'xstream:xstream:1.2.1'
-
         runtime "org.apache.ant:ant:1.8.0"
+        test "org.grails:grails-datastore-test-support:1.0-grails-2.4"
 	}
 
 	plugins {
         compile ':weceem:1.3-SNAPSHOT'
         // plugins for the build system only
-        build ":tomcat:7.0.52.1"
-        // plugins for the compile step
-        compile ":scaffolding:2.0.1"
-        compile ':cache:1.1.1'
+        build ':tomcat:7.0.54'
+        compile ':cache:1.1.7'
+        compile ':scaffolding:2.1.2'
 
         // plugins needed at runtime but not for compilation
-        runtime ":hibernate:3.6.10.10" // or ":hibernate4:4.1.11.2"
-        runtime ":database-migration:1.3.8"
+        runtime ":hibernate:3.6.10.17"
 
-        runtime ":jquery:1.10.2.2"
-        compile ":jquery-ui:1.10.3"
+        runtime ":database-migration:1.4.0"
+
+        runtime ":jquery:1.11.1"
+        compile ":jquery-ui:1.10.4"
         compile ":twitter-bootstrap:3.2.0.2"
-        compile ":cache-headers:1.1.5"
-        compile ":ckeditor:3.6.6.1.0"
+        compile ":cache-headers:1.1.7"
+        compile ":ckeditor:4.4.1.0"
         compile ":feeds:1.6"
 
         compile ":platform-core:1.0.0"
         compile ":fields:1.4"
-        compile ":quartz:1.0-RC7"
-        compile ":searchable:0.6.8"
-        compile ":taggable:1.0.1"
-        compile ":mail:1.0.1"
+        compile ":quartz:1.0.2"
+        compile ":searchable:0.6.9"
+        compile ":taggable:1.1.0"
+        compile ":mail:1.0.7"
 
-        compile ":weceem-spring-security:1.2"
-        compile ":spring-security-core:1.2.7.3"
+        compile ":weceem-spring-security:1.3-SNAPSHOT"
+        compile ":spring-security-core:2.0-RC4"
+
 }
 }
