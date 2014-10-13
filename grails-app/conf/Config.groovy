@@ -10,7 +10,7 @@
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
 
-grails.resources.adhoc.excludes = ['/plugins/weceem-1.2']
+grails.resources.adhoc.excludes = ['/plugins/weceem-1.3']
 
 grails.mime.file.extensions = false // enables the parsing of file extensions from URLs into the request format
 grails.mime.use.accept.header = false
@@ -28,7 +28,26 @@ grails.mime.types = [ html: ['text/html','application/xhtml+xml'],
                       multipartForm: 'multipart/form-data'
                     ]
 // The default codec used to encode data with ${}
-grails.views.default.codec="none" // none, html, base64
+grails.views.default.codec="html" // none, html, base64
+
+// GSP settings
+grails {
+    views {
+        gsp {
+            encoding = 'UTF-8'
+            htmlcodec = 'xml' // use xml escaping instead of HTML4 escaping
+            codecs {
+                expression = 'html' // escapes values inside ${}
+                scriptlet = 'html' // escapes output from scriptlets in GSPs
+                taglib = 'none' // escapes output from taglibs
+                staticparts = 'none' // escapes output from static template parts
+            }
+        }
+// escapes all not-encoded output at final stage of outputting
+// filteringCodecForContentType.'text/html' = 'html'
+    }
+}
+
 grails.views.gsp.encoding="UTF-8"
 
 // Bootstrap
