@@ -26,6 +26,7 @@ grails.project.dependency.resolution = {
 
     }
 	dependencies {
+
 		// specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
         compile 'net.java.dev.textile-j:textile-j:2.2.864'
         compile 'xstream:xstream:1.2.1'
@@ -34,7 +35,7 @@ grails.project.dependency.resolution = {
 	}
 
 	plugins {
-        compile ':weceem:1.3-SNAPSHOT'
+        compile ':weceem:1.3-M1'
         // plugins for the build system only
         build ':tomcat:7.0.54'
         compile ':cache:1.1.7'
@@ -59,7 +60,7 @@ grails.project.dependency.resolution = {
         compile ":taggable:1.1.0"
         compile ":mail:1.0.7"
 
-        compile ":weceem-spring-security:1.3-SNAPSHOT"
+        compile ":weceem-spring-security:1.3-M1"
         compile ":spring-security-core:2.0-RC4"
 
 }
