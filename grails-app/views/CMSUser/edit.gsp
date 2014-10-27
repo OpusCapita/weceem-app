@@ -36,8 +36,9 @@
           <div class="col-md-12 col-xs-12">
             <g:actionSubmit class="button" action="update"
                         value="${message(code: 'command.save', encodeAs:'HTML')}"/>
-            <g:actionSubmit class="button" action="list"
-                        value="${message(code: 'command.cancel', encodeAs:'HTML')}"/>
+            <g:link action="list" controller="${params.controller}" style="color: black; text-decoration: none;">
+              <input type="button" value="${message(code:'content.button.cancel', default:'Cancel')}" class="button"/>
+            </g:link>
           </div>
         </div>
       </g:form>

@@ -60,7 +60,7 @@ grails.project.dependency.resolution = {
         compile ":taggable:1.1.0"
         compile ":mail:1.0.7"
 
-        compile ":weceem-spring-security:1.3-M1"
+        compile ":weceem-spring-security:1.3-SNAPSHOT"
         compile ":spring-security-core:2.0-RC4"
 
 }

@@ -23,6 +23,9 @@ class UserProfileController {
 
         // @todo Bind only user-editable stuff e.g. password and details, not username or authorities/enabled
         user.properties = params
+        user.save(flush:true) // User needs to know if this will fail
+        flash.message = 'user.profile.updated'
+        redirect(action: edit)
     }
     
     def changePassword = {

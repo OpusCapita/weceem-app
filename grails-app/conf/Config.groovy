@@ -83,6 +83,9 @@ weceem.springsecurity.details.mapper = { ->
         username: username,
         password: passwd,
         enabled: enabled,
+        accountNonExpired: accountNonExpired,
+        credentialsNonExpired: credentialsNonExpired,
+        accountNonLocked: accountNonLocked,
         authorities: authorities,
         // optional stuff we add
         email: email,

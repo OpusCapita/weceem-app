@@ -30,6 +30,10 @@ class CMSUser {
     String passwd
     Boolean enabled = false
 
+    Boolean accountNonExpired = true
+    Boolean credentialsNonExpired = true
+    Boolean accountNonLocked = true
+
     String email
     Boolean emailShow = false
 
@@ -53,6 +57,9 @@ class CMSUser {
         passwd(blank: false, nullable: false, maxSize:128)
         pass(blank: false, nullable: false, maxSize:128) // This is just for UI form submission
         enabled()
+        accountNonExpired()
+        credentialsNonExpired()
+        accountNonLocked()
     }
 
     def getRoleAuthorities() {

@@ -17,6 +17,24 @@
     </div>
 
     <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <f:field bean="CMSUserInstance" property="accountNonExpired"/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <f:field bean="CMSUserInstance" property="credentialsNonExpired"/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <f:field bean="CMSUserInstance" property="accountNonLocked"/>
+        </div>
+    </div>
+
+    <div class="row">
       <div class="col-md-2 col-xs-2">
         <label for="authorities"><g:message code="user.label.authorities"/></label>
       </div>
