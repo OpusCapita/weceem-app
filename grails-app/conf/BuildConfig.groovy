@@ -35,10 +35,10 @@ grails.project.dependency.resolution = {
 	}
 
 	plugins {
-        compile ':weceem:1.3-SNAPSHOT'
+        compile ':weceem:1.3-M2'
         // plugins for the build system only
         build ':tomcat:7.0.54'
-        compile ':cache:1.1.7'
+        compile ':cache:1.1.8'
         compile ':scaffolding:2.1.2'
 
         // plugins needed at runtime but not for compilation
@@ -60,7 +60,7 @@ grails.project.dependency.resolution = {
         compile ":taggable:1.1.0"
         compile ":mail:1.0.7"
 
-        compile ":weceem-spring-security:1.3-SNAPSHOT"
+        compile ":weceem-spring-security:1.3-M2"
         compile ":spring-security-core:2.0-RC4"
 
 }
