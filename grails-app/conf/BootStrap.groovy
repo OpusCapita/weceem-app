@@ -14,7 +14,7 @@ class BootStrap {
     def _log = LogFactory.getLog('org.weceem.BootStrap')
     
     def wcmContentRepositoryService
-    def searchableService
+    def elasticSearchService
     def springSecurityService
 
     def init = {servletContext ->
@@ -45,9 +45,7 @@ class BootStrap {
                 initNewInstallation(servletContext)
             }
 
-            searchableService.reindex()
-            println "Starting mirror service"
-            searchableService.startMirroring()
+            elasticSearchService.index()
 
             // Make sure the upload dirs exist
             def uploadsDir = wcmContentRepositoryService.uploadDir

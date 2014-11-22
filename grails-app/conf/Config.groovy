@@ -159,6 +159,49 @@ grails {
     }
 }
 
+// elasticsearch configuration
+def hasCustomElasticSearchConfig
+
+def dbConfLoc = System.getProperty('weceem.config.location', null)
+if (!dbConfLoc) {
+    dbConfLoc = "file:./weceem.properties"
+}
+if (!grails.config.locations) {
+    grails.config.locations =  [dbConfLoc]
+} else grails.config.locations <<  dbConfLoc
+
+def slurper = new ConfigSlurper()
+def configs = grails.config.locations?.collect { l ->
+    println "Loading Weceem config from ${l}"
+    try {
+        URL fileUrl = new URL(l)
+        boolean isFileExists = new File(fileUrl.getPath()).exists()
+        if (isFileExists) {
+            if (l.endsWith('.properties')) {
+                def props = new Properties()
+                props.load(fileUrl.newInputStream() )
+                slurper.parse(props)
+            } else {
+                slurper.parse(fileUrl)
+            }
+        }
+    } catch (IOException e) {
+        println "Couldn't load config from URL $l: $e"
+    }
+}
+def config = new ConfigObject()
+if (configs && !configs.isEmpty()) {
+    configs.each { c -> if (config) config?.merge(c) else config = c }
+    println "Loaded weceem properties: ${config}"
+}
+
+if (config?.elasticSearch) {
+    elasticSearch = config.elasticSearch
+} else {
+    elasticSearch.datastoreImpl = 'hibernateDatastore'
+    elasticSearch.bulkIndexOnStartup = true
+    elasticSearch.disableAutoIndex = false
+}
 
 environments {
    development {
@@ -172,7 +215,6 @@ environments {
                additivity = true
            }
 
-           debug 'grails.plugin.searchable'
 /*
            debug   'org.weceem',
                    'grails.app.controller',
@@ -191,8 +233,7 @@ environments {
                    'org.codehaus.groovy.grails.commons', // core / classloading
                    'org.codehaus.groovy.grails.orm.hibernate', // hibernate integration
                    'org.springframework',
-                   'org.hibernate',
-                   'grails.plugin.searchable'
+                   'org.hibernate'
        }
    }
    test {

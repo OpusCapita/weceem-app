@@ -22,8 +22,6 @@ grails.project.dependency.resolution = {
         grailsHome()
         grailsCentral()
         mavenCentral()
-        mavenRepo "http://repo.grails.org/grails/core"
-
     }
 	dependencies {
 
@@ -31,21 +29,21 @@ grails.project.dependency.resolution = {
         compile 'net.java.dev.textile-j:textile-j:2.2.864'
         compile 'xstream:xstream:1.2.1'
         runtime "org.apache.ant:ant:1.8.0"
+        runtime 'org.apache.ant:ant-launcher:1.8.0'
         test "org.grails:grails-datastore-test-support:1.0-grails-2.4"
 	}
 
 	plugins {
-        compile ':weceem:1.3-M2'
+        compile ':weceem:1.3-SNAPSHOT'
         // plugins for the build system only
         build ':tomcat:7.0.54'
         compile ':cache:1.1.8'
         compile ':scaffolding:2.1.2'
 
         // plugins needed at runtime but not for compilation
-        runtime ":hibernate:3.6.10.17"
-
+        runtime ':hibernate4:4.3.5.5'
         runtime ":database-migration:1.4.0"
-
+        runtime ':elasticsearch:0.0.3.6'
         runtime ":jquery:1.11.1"
         compile ":jquery-ui:1.10.4"
         compile ":twitter-bootstrap:3.2.0.2"
@@ -56,11 +54,10 @@ grails.project.dependency.resolution = {
         compile ":platform-core:1.0.0"
         compile ":fields:1.4"
         compile ":quartz:1.0.2"
-        compile ":searchable:0.6.9"
         compile ":taggable:1.1.0"
         compile ":mail:1.0.7"
 
-        compile ":weceem-spring-security:1.3-M2"
+        compile ":weceem-spring-security:1.3-SNAPSHOT"
         compile ":spring-security-core:2.0-RC4"
 
 }
