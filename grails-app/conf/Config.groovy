@@ -10,7 +10,7 @@
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
 
-grails.resources.adhoc.excludes = ['/plugins/weceem-1.3-M1']
+grails.resources.adhoc.excludes = ['/plugins/weceem-1.3']
 
 grails.mime.file.extensions = false // enables the parsing of file extensions from URLs into the request format
 grails.mime.use.accept.header = false

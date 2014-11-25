@@ -29,12 +29,12 @@ grails.project.dependency.resolution = {
         compile 'net.java.dev.textile-j:textile-j:2.2.864'
         compile 'xstream:xstream:1.2.1'
         runtime "org.apache.ant:ant:1.8.0"
-        runtime 'org.apache.ant:ant-launcher:1.8.0'
+        compile 'org.apache.ant:ant-launcher:1.8.0'
         test "org.grails:grails-datastore-test-support:1.0-grails-2.4"
 	}
 
 	plugins {
-        compile ':weceem:1.3-SNAPSHOT'
+        compile ':weceem:1.3'
         // plugins for the build system only
         build ':tomcat:7.0.54'
         compile ':cache:1.1.8'
@@ -57,7 +57,7 @@ grails.project.dependency.resolution = {
         compile ":taggable:1.1.0"
         compile ":mail:1.0.7"
 
-        compile ":weceem-spring-security:1.3-SNAPSHOT"
+        compile ":weceem-spring-security:1.3"
         compile ":spring-security-core:2.0-RC4"
 
 }
