@@ -43,7 +43,7 @@ class CMSUser {
     /** plain password to create a MD5 password */
     String pass = "secret"
 
-    static mappingRole = {
+    static mapping = {
         cache usage: 'read-write'
         username index: 'userName_Idx'
     }

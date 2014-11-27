@@ -9,6 +9,7 @@ grails.war.resources = { stagingDir, args ->
 }
 
 grails.tomcat.jvmArgs = ["-Xmx1024m", "-XX:MaxPermSize=256m", '-verbose:class']
+
 grails.project.dependency.resolver = "maven" // or ivy
 grails.project.dependency.resolution = {
 	// inherit Grails' default dependencies
@@ -40,9 +41,9 @@ grails.project.dependency.resolution = {
         compile ':cache:1.1.8'
         compile ':scaffolding:2.1.2'
 
-        // plugins needed at runtime but not for compilation
-        runtime ':hibernate4:4.3.5.5'
+        runtime ":hibernate4:4.3.5.5" // or ":hibernate:3.6.10.17"
         runtime ":database-migration:1.4.0"
+
         runtime ':elasticsearch:0.0.3.6'
         runtime ":jquery:1.11.1"
         compile ":jquery-ui:1.10.4"

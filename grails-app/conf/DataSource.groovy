@@ -4,6 +4,7 @@ dataSource {
     driverClassName = "org.h2.Driver"
     username = "sa"
     password = ""
+    dialect = com.jcatalog.hibernate.dialect.ImprovedH2Dialect
 }
 
 hibernate {

@@ -68,6 +68,15 @@ grails {
 // enabled native2ascii conversion of i18n properties files
 grails.enable.native2ascii = true
 
+// configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
+grails.hibernate.cache.queries = false
+
+// configure passing transaction's read-only attribute to Hibernate session, queries and criterias
+// set "singleSession = false" OSIV mode in hibernate configuration after enabling
+grails.hibernate.pass.readonly = false
+// configure passing read-only to OSIV session by default, requires "singleSession = false" OSIV mode
+grails.hibernate.osiv.readonly = false
+
 
 weceem.profile.url = [controller:'userProfile', action:'edit']
 weceem.logout.url = [controller:'logout']
@@ -201,6 +210,8 @@ if (config?.elasticSearch) {
     elasticSearch.datastoreImpl = 'hibernateDatastore'
     elasticSearch.bulkIndexOnStartup = true
     elasticSearch.disableAutoIndex = false
+    elasticSearch.client.mode = 'local'
+    elasticSearch.index.store.type = 'memory' // store local node in memory and not on disk
 }
 
 environments {
@@ -239,7 +250,9 @@ environments {
    test {
    }
    production {
-
+       if (config?.elasticSearch) {
+           elasticSearch.client.mode = 'local'
+       }
        log4j = {
            appenders {
                rollingFile name: 'fileLog',
