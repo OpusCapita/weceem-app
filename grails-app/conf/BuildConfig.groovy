@@ -35,7 +35,7 @@ grails.project.dependency.resolution = {
 	}
 
 	plugins {
-        compile ':weceem:1.3'
+        compile ':weceem:1.4-SNAPSHOT'
         // plugins for the build system only
         build ':tomcat:7.0.54'
         compile ':cache:1.1.8'
