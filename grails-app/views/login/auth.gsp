@@ -60,14 +60,6 @@
                     <input type="submit" id="loginSubmit" class="btn btn-primary" value="${message(code: 'command.login', encodeAs:'HTML')}"/>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-md-6 col-md-offset-5 col-xs-6 col-xs-offset-5" style="margin-top: 20px;">
-                    <span class="text">
-                      <g:message code="login.login.notMember"/>
-                      <g:link controller="userProfile" action="register"><g:message code="login.login.signup"/></g:link>
-                    </span>
-                  </div>
-                </div>
               </form>
             </div>
           </div>

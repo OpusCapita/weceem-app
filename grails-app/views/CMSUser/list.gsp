@@ -15,7 +15,7 @@
       <g:form controller="CMSUser" action="create">
         <div class="row" style="margin-bottom: 2px;">
           <div class="col-md-12 col-xs-12">
-            <g:actionSubmit action="create" value="${message(code: 'command.add')}" class="button"/>
+            <g:actionSubmit action="create" value="${message(code: 'command.add')}" class="btn btn-primary"/>
           </div>
         </div>
       </g:form>

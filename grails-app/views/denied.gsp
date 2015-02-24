@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="${resource(dir: 'css', file: 'errors.css')}" type="text/css">
 </head>
 <body>
+  <p>We're sorry, but you are not authorized to
+     perform the requested operation.</p>
   <g:renderException exception="${exception}" />
 </body>
 </html>

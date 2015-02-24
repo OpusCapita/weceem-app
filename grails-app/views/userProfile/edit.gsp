@@ -33,9 +33,9 @@
 
             <div class="row">
               <div class="col-md-12 col-xs-12">
-                <g:actionSubmit class="button" action="update"
+                <g:actionSubmit class="btn btn-primary" action="update"
                             value="${message(code: 'command.save', encodeAs:'HTML')}"/>
-                <g:actionSubmit class="button" action="back"
+                <g:actionSubmit class="btn btn-default" action="back"
                             value="${message(code: 'command.back', encodeAs:'HTML')}"/>
               </div>
             </div>
