@@ -31,9 +31,9 @@
         <div class="row">
           <div class="col-md-12 col-xs-12">
             <g:actionSubmit action="save"
-                value="${message(code: 'command.save', encodeAs:'HTML')}" class="button"/>
+                value="${message(code: 'command.save', encodeAs:'HTML')}" class="btn btn-primary"/>
             <g:link action="list" controller="${params.controller}" style="color: black; text-decoration: none;">
-               <input type="button" value="${message(code:'content.button.cancel', default:'Cancel')}" class="button"/>
+               <input type="button" value="${message(code:'content.button.cancel', default:'Cancel')}" class="btn btn-default"/>
             </g:link>
           </div>
         </div>

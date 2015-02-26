@@ -37,12 +37,12 @@ grails.project.dependency.resolution = {
 	plugins {
         compile ':weceem:1.4-SNAPSHOT'
         // plugins for the build system only
-        build ':tomcat:7.0.54'
+        build ':tomcat:7.0.55'
         compile ':cache:1.1.8'
         compile ':scaffolding:2.1.2'
 
-        runtime ":hibernate4:4.3.5.5" // or ":hibernate:3.6.10.17"
-        runtime ":database-migration:1.4.0"
+        runtime ':hibernate4:4.3.6.1' // or ':hibernate:3.6.10.18'
+        runtime ':database-migration:1.4.0'
 
         runtime ':elasticsearch:0.0.3.6'
         runtime ":jquery:1.11.1"
@@ -60,6 +60,5 @@ grails.project.dependency.resolution = {
 
         compile ":weceem-spring-security:1.3"
         compile ":spring-security-core:2.0-RC4"
-
 }
 }
