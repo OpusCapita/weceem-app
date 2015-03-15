@@ -10,7 +10,7 @@
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
 
-grails.resources.adhoc.excludes = ['/plugins/weceem-1.3']
+grails.resources.adhoc.excludes = ['/plugins/weceem-1.4-SNAPSHOT']
 
 grails.mime.file.extensions = false // enables the parsing of file extensions from URLs into the request format
 grails.mime.use.accept.header = false
@@ -217,7 +217,8 @@ if (config?.elasticSearch) {
 environments {
    development {
 
-       weceem.upload.dir = 'file:/var/www/weceem.org/uploads/'
+       weceem.upload.dir = 'file:/var/weceem-smart-uploads/'
+      // weceem.upload.url = "/wcm/files/"
 
        // log4j configuration
        log4j = {
