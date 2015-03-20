@@ -216,9 +216,32 @@ if (config?.elasticSearch) {
 
 environments {
    development {
-
        weceem.upload.dir = 'file:/var/weceem-smart-uploads/'
-      // weceem.upload.url = "/wcm/files/"
+       // weceem.upload.url = "/wcm/files/"
+
+       // configuration attribute can be specified as the result of Closure execution
+       // see example: as far as the values are changed in specified files, the application uses the new values.
+       /*
+       weceem.upload.dir = {
+           URL fileUrl = new URL('file:./uploadDir.txt')
+           boolean isFileExists = new File(fileUrl.getPath()).exists()
+           if (isFileExists) {
+               return new File(fileUrl.getPath()).text
+           }  else {
+               return 'file:/var/weceem-smart-uploads/'
+           }
+       }
+
+       weceem.upload.url = {
+           URL fileUrl = new URL('file:./uploadUrl.txt')
+           boolean isFileExists = new File(fileUrl.getPath()).exists()
+           if (isFileExists) {
+               return new File(fileUrl.getPath()).text
+           }  else {
+               return '/wcm/files/'
+           }
+       }
+       */
 
        // log4j configuration
        log4j = {
