@@ -214,6 +214,11 @@ if (config?.elasticSearch) {
     elasticSearch.index.store.type = 'memory' // store local node in memory and not on disk
 }
 
+// specify in case of full page document structure
+// in CKEditor
+
+//ckeditor.fullPage = true
+
 environments {
    development {
        weceem.upload.dir = 'file:/var/weceem-smart-uploads/'
